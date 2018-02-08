@@ -29,6 +29,9 @@ RUN yum -y --enablerepo=remi,remi-php72 install \
 RUN ln -sf /dev/stdout /var/log/httpd/access_log && \
     ln -sf /dev/stderr /var/log/httpd/error_log
 
+# mime タイプのファイル追加
+RUN ln -sf /etc/mime.types /etc/httpd/conf/mime.types
+
 # PHP 設定ファイル
 COPY php.ini /etc/php.ini
 
